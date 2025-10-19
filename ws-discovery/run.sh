@@ -1,0 +1,132 @@
+#!/usr/bin/env bashio
+
+# Get configuration options
+INTERFACE=$(bashio::config 'interface')
+HOPLIMIT=$(bashio::config 'hoplimit')
+UUID=$(bashio::config 'uuid')
+VERBOSE=$(bashio::config 'verbose')
+DOMAIN=$(bashio::config 'domain')
+HOSTNAME=$(bashio::config 'hostname')
+WORKGROUP=$(bashio::config 'workgroup')
+NO_AUTOSTART=$(bashio::config 'no_autostart')
+NO_HTTP=$(bashio::config 'no_http')
+IPV4ONLY=$(bashio::config 'ipv4only')
+IPV6ONLY=$(bashio::config 'ipv6only')
+SHORTLOG=$(bashio::config 'shortlog')
+PRESERVE_CASE=$(bashio::config 'preserve_case')
+CHROOT=$(bashio::config 'chroot')
+USER=$(bashio::config 'user')
+DISCOVERY=$(bashio::config 'discovery')
+LISTEN=$(bashio::config 'listen')
+NO_HOST=$(bashio::config 'no_host')
+METADATA_TIMEOUT=$(bashio::config 'metadata_timeout')
+SOURCE_PORT=$(bashio::config 'source_port')
+
+# Build wsdd command arguments
+ARGS=""
+
+# Add interface if specified
+if [ -n "$INTERFACE" ]; then
+    ARGS="$ARGS --interface $INTERFACE"
+fi
+
+# Add hoplimit if specified and not default
+if [ -n "$HOPLIMIT" ] && [ "$HOPLIMIT" != "1" ]; then
+    ARGS="$ARGS --hoplimit $HOPLIMIT"
+fi
+
+# Add UUID if specified
+if [ -n "$UUID" ]; then
+    ARGS="$ARGS --uuid $UUID"
+fi
+
+# Add verbose flag if enabled
+if bashio::var.true "$VERBOSE"; then
+    ARGS="$ARGS --verbose"
+fi
+
+# Add domain if specified (disables workgroup)
+if [ -n "$DOMAIN" ]; then
+    ARGS="$ARGS --domain $DOMAIN"
+fi
+
+# Add hostname if specified
+if [ -n "$HOSTNAME" ]; then
+    ARGS="$ARGS --hostname $HOSTNAME"
+fi
+
+# Add workgroup (has a default value)
+if [ -n "$WORKGROUP" ]; then
+    ARGS="$ARGS --workgroup $WORKGROUP"
+fi
+
+# Add no-autostart flag if enabled
+if bashio::var.true "$NO_AUTOSTART"; then
+    ARGS="$ARGS --no-autostart"
+fi
+
+# Add no-http flag if enabled
+if bashio::var.true "$NO_HTTP"; then
+    ARGS="$ARGS --no-http"
+fi
+
+# Add ipv4only flag if enabled
+if bashio::var.true "$IPV4ONLY"; then
+    ARGS="$ARGS --ipv4only"
+fi
+
+# Add ipv6only flag if enabled
+if bashio::var.true "$IPV6ONLY"; then
+    ARGS="$ARGS --ipv6only"
+fi
+
+# Add shortlog flag if enabled
+if bashio::var.true "$SHORTLOG"; then
+    ARGS="$ARGS --shortlog"
+fi
+
+# Add preserve-case flag if enabled
+if bashio::var.true "$PRESERVE_CASE"; then
+    ARGS="$ARGS --preserve-case"
+fi
+
+# Add chroot if specified
+if [ -n "$CHROOT" ]; then
+    ARGS="$ARGS --chroot $CHROOT"
+fi
+
+# Add user if specified
+if [ -n "$USER" ]; then
+    ARGS="$ARGS --user $USER"
+fi
+
+# Add discovery flag if enabled
+if bashio::var.true "$DISCOVERY"; then
+    ARGS="$ARGS --discovery"
+fi
+
+# Add listen if specified
+if [ -n "$LISTEN" ]; then
+    ARGS="$ARGS --listen $LISTEN"
+fi
+
+# Add no-host flag if enabled
+if bashio::var.true "$NO_HOST"; then
+    ARGS="$ARGS --no-host"
+fi
+
+# Add metadata-timeout if specified
+if [ -n "$METADATA_TIMEOUT" ]; then
+    ARGS="$ARGS --metadata-timeout $METADATA_TIMEOUT"
+fi
+
+# Add source-port if specified
+if [ -n "$SOURCE_PORT" ]; then
+    ARGS="$ARGS --source-port $SOURCE_PORT"
+fi
+
+bashio::log.info "Starting WS-Discovery daemon..."
+bashio::log.info "Arguments: $ARGS"
+
+# Run wsdd
+exec python3 /usr/local/bin/wsdd.py $ARGS
