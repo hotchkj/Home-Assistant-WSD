@@ -18,14 +18,23 @@
   },
   "options": {
     "workgroup": "WORKGROUP",
-    "hostname": ""
+    "hostname": "",
+    "domain": "",
+    "localsubnet": "",
+    "debug": false
   },
   "schema": {
     "workgroup": "str",
-    "hostname": "str?"
+    "hostname": "str?",
+    "domain": "str?",
+    "localsubnet": "str?",
+    "debug": "bool"
   },
   "environment": {
     "WORKGROUP": "workgroup",
-    "HOSTNAME": "hostname"
+    "HOSTNAME": "hostname",
+    "DOMAIN": "domain",
+    "LOCALSUBNET": "localsubnet",
+    "DEBUG": "debug"
   }
 }

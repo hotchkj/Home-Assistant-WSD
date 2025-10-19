@@ -26,6 +26,9 @@ Add-on configuration:
 ```yaml
 workgroup: WORKGROUP
 hostname: ""
+domain: ""
+localsubnet: ""
+debug: false
 ```
 
 ### Option: `workgroup`
@@ -35,6 +38,18 @@ The Windows workgroup name. Default is `WORKGROUP`.
 ### Option: `hostname`
 
 The hostname to advertise. If left empty, the system hostname will be used.
+
+### Option: `domain`
+
+Report being a member of an Active Directory domain. If set, this disables the WORKGROUP option. Leave empty if not using AD.
+
+### Option: `localsubnet`
+
+The fixed part of your local network IPv4 address, with dots escaped by double backslashes. For example: `192\\.168\\.1` for the 192.168.1.0/24 subnet. Leave empty to auto-detect.
+
+### Option: `debug`
+
+Enable debug mode. When set to `true`, the healthcheck script will output status messages to the Docker log. Default is `false`.
 
 ## Support
 
