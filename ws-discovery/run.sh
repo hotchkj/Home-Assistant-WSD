@@ -4,39 +4,39 @@
 WORKGROUP=$(bashio::config 'workgroup')
 HOSTNAME=$(bashio::config 'hostname')
 DOMAIN=$(bashio::config 'domain')
-LOCALSUBNET=$(bashio::config 'localsubnet')
+INTERFACE=$(bashio::config 'localsubnet')
 DEBUG=$(bashio::config 'debug')
 
-# Build wsdd command
-WSDD_CMD="/usr/local/bin/wsdd.py"
+# Build wsdd command arguments
+ARGS=""
 
 # Add workgroup
 if [ -n "$WORKGROUP" ]; then
-    WSDD_CMD="$WSDD_CMD -w $WORKGROUP"
+    ARGS="$ARGS --workgroup $WORKGROUP"
 fi
 
 # Add hostname if specified
 if [ -n "$HOSTNAME" ]; then
-    WSDD_CMD="$WSDD_CMD -n $HOSTNAME"
+    ARGS="$ARGS --hostname $HOSTNAME"
 fi
 
 # Add domain if specified (disables workgroup)
 if [ -n "$DOMAIN" ]; then
-    WSDD_CMD="$WSDD_CMD -d $DOMAIN"
+    ARGS="$ARGS --domain $DOMAIN"
 fi
 
-# Add local subnet if specified
-if [ -n "$LOCALSUBNET" ]; then
-    WSDD_CMD="$WSDD_CMD -i $LOCALSUBNET"
+# Add interface if specified
+if [ -n "$INTERFACE" ]; then
+    ARGS="$ARGS --interface $INTERFACE"
 fi
 
 # Add verbose flag if debug is enabled
 if bashio::var.true "$DEBUG"; then
-    WSDD_CMD="$WSDD_CMD -v"
+    ARGS="$ARGS --verbose"
 fi
 
 bashio::log.info "Starting WS-Discovery daemon..."
-bashio::log.info "Command: $WSDD_CMD"
+bashio::log.info "Arguments: $ARGS"
 
 # Run wsdd
-exec python3 $WSDD_CMD
+exec python3 /usr/local/bin/wsdd.py $ARGS

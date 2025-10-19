@@ -10,7 +10,7 @@
 
 This repository contains a Home Assistant add-on that provides WS-Discovery (Web Services Dynamic Discovery) support. It makes Linux/Samba servers visible in the Windows Network Browser, allowing Windows computers to discover your Home Assistant server and any Samba shares on your network.
 
-This add-on uses [wsdd](https://github.com/christgau/wsdd) by Steffen Christgau - a Python implementation of a WS-Discovery server that implements the LLMNR and WS-Discovery protocols. The wsdd.py script is fetched from the upstream repository at a specific commit (e9325b5ce312423f9b83f7175949694097a161b2) for deterministic builds.
+This add-on uses [wsdd](https://github.com/christgau/wsdd) by Steffen Christgau - a Python implementation of a WS-Discovery server that implements the LLMNR and WS-Discovery protocols.
 
 ## Installation
 
@@ -55,31 +55,11 @@ Report being a member of an Active Directory domain. If set, this disables the W
 
 ### Option: `localsubnet`
 
-The fixed part of your local network IPv4 address, with dots escaped by double backslashes. For example: `192\\.168\\.1` for the 192.168.1.0/24 subnet. Leave empty to auto-detect.
+Specify the network interface or IP address to use for WS-Discovery traffic. For example: `eth0` or `192.168.1.10`. Leave empty to use all available interfaces.
 
 ### Option: `debug`
 
 Enable debug mode. When set to `true`, the add-on will output verbose logging. Default is `false`.
-
-## Repository Structure
-
-```
-.
-├── ws-discovery/        # Home Assistant add-on directory
-│   ├── Dockerfile      # Builds custom image with wsdd.py
-│   ├── build.yaml      # Build configuration for multiple architectures
-│   ├── config.json     # Add-on configuration schema
-│   ├── run.sh          # Add-on startup script
-│   ├── README.md       # Add-on documentation
-│   └── CHANGELOG.md    # Add-on changelog
-├── archive/            # Legacy files from previous implementation
-├── repository.yaml     # Home Assistant repository configuration
-└── README.md           # This file
-```
-
-## Maintainer Notes
-
-This add-on fetches wsdd.py from the upstream christgau/wsdd repository at commit e9325b5ce312423f9b83f7175949694097a161b2 for deterministic builds. If you prefer a self-contained add-on that doesn't require fetching external files during build, the wsdd.py file could be embedded directly into the repository.
 
 ## Support
 

@@ -49,7 +49,7 @@ Report being a member of an Active Directory domain. If set, this disables the W
 
 ### Option: `localsubnet`
 
-The fixed part of your local network IPv4 address, with dots escaped by double backslashes. For example: `192\\.168\\.1` for the 192.168.1.0/24 subnet. Leave empty to auto-detect.
+Specify the network interface or IP address to use for WS-Discovery traffic. For example: `eth0` or `192.168.1.10`. Leave empty to use all available interfaces.
 
 ### Option: `debug`
 
