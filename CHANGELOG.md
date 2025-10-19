@@ -6,7 +6,8 @@ All notable changes to this add-on will be documented in this file.
 
 ### Added
 - Initial release of WS-Discovery add-on
+- Uses the hihp/wsdd Docker image
 - Support for configurable workgroup name
 - Support for custom hostname
-- Multi-architecture support (armhf, armv7, aarch64, amd64, i386)
 - Host network mode for proper WS-Discovery functionality
+- amd64 architecture support

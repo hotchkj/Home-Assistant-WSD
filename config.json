@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "slug": "ws-discovery",
   "description": "WS-Discovery (wsdd) daemon for making Linux/Samba servers visible in Windows Network Browser",
-  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "arch": ["amd64"],
   "startup": "services",
   "boot": "auto",
   "host_network": true,
+  "image": "hihp/wsdd",
   "ports": {
     "3702/tcp": 3702,
     "3702/udp": 3702
@@ -22,5 +23,9 @@
   "schema": {
     "workgroup": "str",
     "hostname": "str?"
+  },
+  "environment": {
+    "WORKGROUP": "workgroup",
+    "HOSTNAME": "hostname"
   }
 }

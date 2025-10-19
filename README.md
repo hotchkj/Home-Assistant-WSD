@@ -1,12 +1,12 @@
 # WS-Discovery Home Assistant Add-on
 
-![Supports aarch64 Architecture][aarch64-shield] ![Supports amd64 Architecture][amd64-shield] ![Supports armhf Architecture][armhf-shield] ![Supports armv7 Architecture][armv7-shield] ![Supports i386 Architecture][i386-shield]
+![Supports amd64 Architecture][amd64-shield]
 
 ## About
 
 This add-on provides WS-Discovery (Web Services Dynamic Discovery) support for Home Assistant. It makes Linux/Samba servers visible in the Windows Network Browser, allowing Windows computers to discover your Home Assistant server and any Samba shares on your network.
 
-This add-on uses [wsdd](https://github.com/christgau/wsdd), a Python implementation of a WS-Discovery server that implements the LLMNR and WS-Discovery protocols.
+This add-on uses the [hihp/wsdd](https://github.com/hihp/wsdd) Docker image, which implements [wsdd](https://github.com/christgau/wsdd) by Steffen Christgau - a Python implementation of a WS-Discovery server that implements the LLMNR and WS-Discovery protocols.
 
 ## Installation
 
@@ -48,10 +48,8 @@ You could open an issue on GitHub:
 
 MIT License - see [LICENSE](LICENSE) file for details.
 
-This add-on uses [wsdd](https://github.com/christgau/wsdd) which is licensed under the MIT License.
+This add-on uses the [hihp/wsdd](https://github.com/hihp/wsdd) Docker image.
 
-[aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
+The underlying [wsdd](https://github.com/christgau/wsdd) implementation is licensed under the MIT License.
+
 [amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
-[armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
-[armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
-[i386-shield]: https://img.shields.io/badge/i386-yes-green.svg
