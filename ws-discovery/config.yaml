@@ -1,0 +1,48 @@
+name: WS-Discovery
+version: "1.0.0"
+slug: ws-discovery
+description: WS-Discovery support for Home Assistant using wsdd
+url: https://github.com/hotchkj/Home-Assistant-WSD
+arch:
+  - amd64
+  - armhf
+  - armv7
+  - aarch64
+init: false
+host_network: true
+
+options:
+  workgroup: WORKGROUP
+  hostname: ""
+  domain: ""
+  interface: []
+  ipv4only: false
+  ipv6only: false
+  hoplimit: 1
+  preserve_case: false
+  discovery: false
+  no_http: false
+  verbose: 0
+  chroot: ""
+  user: ""
+  uuid: ""
+  metadata_timeout: 2.0
+  source_port: 0
+
+schema:
+  workgroup: str
+  hostname: str?
+  domain: str?
+  interface: [str]?
+  ipv4only: bool
+  ipv6only: bool
+  hoplimit: int
+  preserve_case: bool
+  discovery: bool
+  no_http: bool
+  verbose: int
+  chroot: str?
+  user: str?
+  uuid: str?
+  metadata_timeout: float
+  source_port: int
