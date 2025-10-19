@@ -22,6 +22,5 @@
   "schema": {
     "workgroup": "str",
     "hostname": "str?"
-  },
-  "image": "ghcr.io/hotchkj/ws-discovery-{arch}"
+  }
 }
