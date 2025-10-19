@@ -2,28 +2,16 @@
 
 All notable changes to this add-on repository will be documented in this file.
 
-## [1.1.0] - 2025-10-19
-
-### Changed
-- Transformed repository into valid Home Assistant add-on repository structure
-- Moved add-on files to ws-discovery/ directory
-- Now builds custom Docker image with wsdd.py fetched from christgau/wsdd at commit e9325b5ce312423f9b83f7175949694097a161b2 for deterministic builds
-- Added support for multiple architectures (amd64, aarch64, armhf, armv7, i386)
-- Removed dependency on external Docker image
+## [0.1.0] - 2025-10-19
 
 ### Added
+- Initial release of WS-Discovery add-on repository
+- Custom Docker image built from wsdd v0.9 release
+- Support for multiple architectures (amd64, aarch64, armhf, armv7, i386)
+- Comprehensive support for all wsdd command line options
 - repository.yaml for Home Assistant add-on repository configuration
-- archive/ directory with legacy files from previous implementation
 - Dockerfile for building add-on image
-- run.sh script for proper configuration handling
+- run.sh script with full wsdd option support
 - build.yaml for multi-architecture support
-
-## [1.0.0] - 2025-10-19
-
-### Added
-- Initial release of WS-Discovery add-on
-- Uses the hihp/wsdd Docker image
-- Support for configurable workgroup name
-- Support for custom hostname
+- Configuration via YAML format (config.yaml)
 - Host network mode for proper WS-Discovery functionality
-- amd64 architecture support

@@ -25,35 +25,81 @@ This add-on uses [wsdd](https://github.com/christgau/wsdd) by Steffen Christgau 
 
 ## Configuration
 
-Add-on configuration:
+Add-on configuration example:
 
 ```yaml
 workgroup: WORKGROUP
 hostname: ""
 domain: ""
-localsubnet: ""
-debug: false
+interface: ""
+verbose: false
+ipv4only: false
+ipv6only: false
 ```
 
-### Option: `workgroup`
+### Basic Options
 
+#### `workgroup`
 The Windows workgroup name. Default is `WORKGROUP`.
 
-### Option: `hostname`
-
+#### `hostname`
 The hostname to advertise. If left empty, the system hostname will be used.
 
-### Option: `domain`
+#### `domain`
+Report being a member of an Active Directory domain. If set, this disables the workgroup option. Leave empty if not using AD.
 
-Report being a member of an Active Directory domain. If set, this disables the WORKGROUP option. Leave empty if not using AD.
-
-### Option: `localsubnet`
-
+#### `interface`
 Specify the network interface or IP address to use for WS-Discovery traffic. For example: `eth0` or `192.168.1.10`. Leave empty to use all available interfaces.
 
-### Option: `debug`
+#### `verbose`
+Enable verbose logging for debugging. Default is `false`.
 
-Enable debug mode. When set to `true`, the add-on will output verbose logging. Default is `false`.
+### Advanced Options
+
+#### `hoplimit`
+Hop limit for multicast packets. Default is `1` (link-local only). Range: 1-255.
+
+#### `uuid`
+Specify a custom UUID for the target device. Leave empty to auto-generate.
+
+#### `no_autostart`
+Do not start networking after launch. Default is `false`.
+
+#### `no_http`
+Disable HTTP service (useful for debugging). Default is `false`.
+
+#### `ipv4only`
+Use only IPv4. Default is `false`.
+
+#### `ipv6only`
+Use IPv6 only. Default is `false`.
+
+#### `shortlog`
+Log only level and message (shorter log format). Default is `false`.
+
+#### `preserve_case`
+Preserve case of the provided/detected hostname. Default is `false`.
+
+#### `chroot`
+Directory to chroot into. Leave empty for no chroot.
+
+#### `user`
+Drop privileges to specified user:group. Leave empty to run as default user.
+
+#### `discovery`
+Enable discovery operation mode. Default is `false`.
+
+#### `listen`
+Listen on path or localhost port in discovery mode. Leave empty for default.
+
+#### `no_host`
+Disable server mode operation (host will be undiscoverable). Default is `false`.
+
+#### `metadata_timeout`
+Set timeout for HTTP-based metadata exchange. Leave empty for default.
+
+#### `source_port`
+Send multicast traffic/receive replies on this port. Leave empty for default.
 
 ## Support
 

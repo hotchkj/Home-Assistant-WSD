@@ -31,35 +31,37 @@ Alternatively, click the button below to add this repository automatically:
 
 ## Configuration
 
-Add-on configuration:
+Add-on configuration example:
 
 ```yaml
 workgroup: WORKGROUP
 hostname: ""
 domain: ""
-localsubnet: ""
-debug: false
+interface: ""
+verbose: false
 ```
 
-### Option: `workgroup`
+For detailed configuration options, see the [add-on README](ws-discovery/README.md). The add-on supports all wsdd command line options including:
 
+- **Basic options**: workgroup, hostname, domain, interface, verbose
+- **Advanced options**: hoplimit, uuid, ipv4only, ipv6only, preserve_case, and more
+
+### Common Options
+
+#### `workgroup`
 The Windows workgroup name. Default is `WORKGROUP`.
 
-### Option: `hostname`
-
+#### `hostname`
 The hostname to advertise. If left empty, the system hostname will be used.
 
-### Option: `domain`
+#### `domain`
+Report being a member of an Active Directory domain. If set, this disables the workgroup option. Leave empty if not using AD.
 
-Report being a member of an Active Directory domain. If set, this disables the WORKGROUP option. Leave empty if not using AD.
-
-### Option: `localsubnet`
-
+#### `interface`
 Specify the network interface or IP address to use for WS-Discovery traffic. For example: `eth0` or `192.168.1.10`. Leave empty to use all available interfaces.
 
-### Option: `debug`
-
-Enable debug mode. When set to `true`, the add-on will output verbose logging. Default is `false`.
+#### `verbose`
+Enable verbose logging for debugging. Default is `false`.
 
 ## Support
 
