@@ -56,4 +56,3 @@ schema:
   no_host: bool
   metadata_timeout: str?
   source_port: str?
-image: "ghcr.io/hotchkj/{arch}-addon-ws-discovery"
