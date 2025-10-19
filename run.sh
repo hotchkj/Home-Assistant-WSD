@@ -17,5 +17,5 @@ if [ -n "${HOSTNAME}" ]; then
 fi
 
 # Start wsdd
-bashio::log.info "Running: wsdd ${WSDD_ARGS[*]}"
+bashio::log.info "Starting wsdd with workgroup: ${WORKGROUP}${HOSTNAME:+ and hostname: ${HOSTNAME}}"
 exec wsdd "${WSDD_ARGS[@]}"
