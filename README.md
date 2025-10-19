@@ -10,7 +10,7 @@
 
 This repository contains a Home Assistant add-on that provides WS-Discovery (Web Services Dynamic Discovery) support. It makes Linux/Samba servers visible in the Windows Network Browser, allowing Windows computers to discover your Home Assistant server and any Samba shares on your network.
 
-This add-on uses [wsdd](https://github.com/christgau/wsdd) by Steffen Christgau - a Python implementation of a WS-Discovery server that implements the LLMNR and WS-Discovery protocols.
+This add-on uses [wsdd](https://github.com/christgau/wsdd) by Steffen Christgau - a Python implementation of a WS-Discovery server that implements the LLMNR and WS-Discovery protocols. The wsdd implementation is sourced directly from the official repository at https://github.com/christgau/wsdd.
 
 ## Installation
 

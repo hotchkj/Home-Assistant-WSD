@@ -3,7 +3,7 @@ FROM $BUILD_FROM
 
 # The BUILD_FROM argument is provided by Home Assistant from build.yaml
 # This allows the add-on to be built for multiple architectures
-# The base images are Alpine-based and include bashio but not Python
+# The base images are Alpine-based and include bashio and s6-overlay
 
 # Install Python and required tools
 RUN apk add --no-cache \
@@ -12,15 +12,15 @@ RUN apk add --no-cache \
     tar
 
 # Fetch wsdd from release tarball
+# wsdd source: https://github.com/christgau/wsdd
 RUN wget -O /tmp/wsdd.tar.gz https://github.com/christgau/wsdd/archive/refs/tags/v0.9.tar.gz && \
     tar -xzf /tmp/wsdd.tar.gz -C /tmp && \
     cp /tmp/wsdd-0.9/src/wsdd.py /usr/local/bin/wsdd.py && \
     chmod +x /usr/local/bin/wsdd.py && \
     rm -rf /tmp/wsdd.tar.gz /tmp/wsdd-0.9
 
-# Copy run script
-COPY run.sh /
-RUN chmod a+x /run.sh
+# Copy root filesystem
+COPY rootfs /
 
 # Build arguments
 ARG BUILD_ARCH
@@ -47,6 +47,3 @@ LABEL \
     org.opencontainers.image.created=${BUILD_DATE} \
     org.opencontainers.image.revision=${BUILD_REF} \
     org.opencontainers.image.version=${BUILD_VERSION}
-
-# Run the service
-CMD [ "/run.sh" ]
