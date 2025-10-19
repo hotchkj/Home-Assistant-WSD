@@ -3,7 +3,7 @@ name: WS-Discovery
 version: 0.1.2
 slug: ws-discovery
 description: WS-Discovery (wsdd) daemon for making Linux/Samba servers visible in Windows Network Browser
-url: "https://github.com/hotchkj/Home-Assistant-WSD/tree/main/ws-discovery"
+url: "https://github.com/hotchkj/hass-ws-discovery/tree/main/ws-discovery"
 arch:
   - amd64
   - aarch64

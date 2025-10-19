@@ -18,7 +18,7 @@ This add-on uses [wsdd](https://github.com/christgau/wsdd) by Steffen Christgau 
 
 1. Navigate to the Supervisor Add-on Store in Home Assistant
 2. Click on the three dots in the top right corner and select "Repositories"
-3. Add this repository URL: `https://github.com/hotchkj/Home-Assistant-WSD`
+3. Add this repository URL: `https://github.com/hotchkj/hass-ws-discovery`
 4. Find "WS-Discovery" in the add-on store and click it
 5. Click "Install"
 6. Configure the add-on (see Configuration section below)
@@ -27,7 +27,7 @@ This add-on uses [wsdd](https://github.com/christgau/wsdd) by Steffen Christgau 
 
 Alternatively, click the button below to add this repository automatically:
 
-[![Open your Home Assistant instance and show the add add-on repository dialog with this repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fhotchkj%2FHome-Assistant-WSD)
+[![Open your Home Assistant instance and show the add add-on repository dialog with this repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fhotchkj%2Fhass-ws-discovery)
 
 ## Configuration
 
@@ -69,7 +69,7 @@ Got questions?
 
 You could open an issue on GitHub:
 
-- [Open an issue](https://github.com/hotchkj/Home-Assistant-WSD/issues)
+- [Open an issue](https://github.com/hotchkj/hass-ws-discovery/issues)
 
 ## License
 

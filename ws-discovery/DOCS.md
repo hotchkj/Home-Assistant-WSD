@@ -251,7 +251,7 @@ interface: 192.168.10.100
 
 If you encounter issues:
 
-- Check the [GitHub Issues](https://github.com/hotchkj/Home-Assistant-WSD/issues) for known problems
+- Check the [GitHub Issues](https://github.com/hotchkj/hass-ws-discovery/issues) for known problems
 - Review the [wsdd documentation](https://github.com/christgau/wsdd) for protocol-specific details
 - Enable verbose logging and include log output when reporting issues
 
