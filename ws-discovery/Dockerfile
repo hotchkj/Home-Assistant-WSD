@@ -1,6 +1,10 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
+# The BUILD_FROM argument is provided by Home Assistant from build.yaml
+# This allows the add-on to be built for multiple architectures
+# The base images are Alpine-based and include bashio but not Python
+
 # Install Python and required tools
 RUN apk add --no-cache \
     python3 \
