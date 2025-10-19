@@ -18,4 +18,4 @@ fi
 
 # Start wsdd
 bashio::log.info "Starting wsdd with workgroup: ${WORKGROUP}${HOSTNAME:+ and hostname: ${HOSTNAME}}"
-exec wsdd "${WSDD_ARGS[@]}"
+exec python3 /usr/src/app/wsdd.py "${WSDD_ARGS[@]}"
